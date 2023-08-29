@@ -1,3 +1,5 @@
+# debugging
+
 export MODEL_NAME="runwayml/stable-diffusion-v1-5"
 export HF_HOME='/tmp'
 
