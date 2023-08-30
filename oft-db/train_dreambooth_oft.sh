@@ -7,7 +7,7 @@ idx=$1
 prompt_idx=$((idx % 25))
 class_idx=$((idx / 25))
 eps=6e-5
-r=4
+r=16
 
 # Define the unique_token, class_tokens, and subject_names
 unique_token="qwe"
@@ -177,7 +177,7 @@ accelerate launch train_dreambooth_oft.py \
   --report_to="wandb" \
   --lr_scheduler="constant" \
   --lr_warmup_steps=0 \
-  --max_train_steps=2005 \
+  --max_train_steps=100 \
   --validation_prompt="$validation_prompt" \
   --validation_epochs=1 \
   --seed="0" \
