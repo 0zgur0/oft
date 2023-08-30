@@ -3,11 +3,11 @@
 export MODEL_NAME="runwayml/stable-diffusion-v1-5"
 export HF_HOME='/tmp'
 
-idx=$1
+idx=$7
 prompt_idx=$((idx % 25))
 class_idx=$((idx / 25))
 eps=6e-5
-r=16
+r=2
 
 # Define the unique_token, class_tokens, and subject_names
 unique_token="qwe"
@@ -169,15 +169,15 @@ accelerate launch train_dreambooth_oft.py \
   --instance_prompt="$instance_prompt" \
   --with_prior_preservation --prior_loss_weight=1.0 \
   --class_prompt="$class_prompt" \
-  --resolution=256 \
+  --resolution=512 \
   --train_batch_size=1 \
   --gradient_accumulation_steps=1 \
   --checkpointing_steps=1000 \
-  --learning_rate=6e-5 \
+  --learning_rate=1e-4 \
   --report_to="wandb" \
   --lr_scheduler="constant" \
   --lr_warmup_steps=0 \
-  --max_train_steps=2000 \
+  --max_train_steps=5000 \
   --validation_prompt="$validation_prompt" \
   --validation_epochs=1 \
   --seed="0" \
