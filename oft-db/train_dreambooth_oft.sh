@@ -169,10 +169,10 @@ accelerate launch train_dreambooth_oft.py \
   --instance_prompt="$instance_prompt" \
   --with_prior_preservation --prior_loss_weight=1.0 \
   --class_prompt="$class_prompt" \
-  --resolution=512 \
+  --resolution=256 \
   --train_batch_size=1 \
   --gradient_accumulation_steps=1 \
-  --checkpointing_steps=5000 \
+  --checkpointing_steps=50 \
   --learning_rate=6e-5 \
   --report_to="wandb" \
   --lr_scheduler="constant" \
